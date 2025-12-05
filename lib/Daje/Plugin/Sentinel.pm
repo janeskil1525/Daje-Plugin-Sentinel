@@ -1,11 +1,15 @@
 package Daje::Plugin::Sentinel;
-use 5.008001;
-use strict;
-use warnings;
+use Mojo::Base 'Mojolicious::Plugin', -signatures;
+use v5.42;
 
 our $VERSION = "0.01";
 
+sub register ($self, $app, $config) {
+    $app->log->debug("Daje::Plugin::Sentinel::register start");
 
+
+    $app->log->debug("Daje::Plugin::Tools::register done");
+}
 
 1;
 __END__
