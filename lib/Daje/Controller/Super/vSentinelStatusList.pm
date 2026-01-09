@@ -1,21 +1,21 @@
-package Daje::Controller::Super::vSentinelSentinel;
+package Daje::Controller::Super::vSentinelStatusList;
 use Mojo::Base 'Mojolicious::Controller', -base, -signatures;
 use v5.42;
 
 # NAME
 # ====
 #
-# Daje::Controller::Super::SentinelSentinel - Model class
+# Daje::Controller::Super::SentinelStatusList - Model class
 #
 # SYNOPSIS
 # ========
 #
-#       use Daje::Controller::Super::vSentinelSentinel##
+#       use Daje::Controller::Super::vSentinelStatus##
 #
 # DESCRIPTION
 # ===========
 #
-# Daje::Controller::Super::SentinelSentinel is a standard controller
+# Daje::Controller::Super::SentinelStatus is a standard controller
 #
 # METHODS
 # =======
@@ -40,40 +40,23 @@ use v5.42;
 
 our $VERSION = '0.01';
 
-sub load_sentinel_sentinel_pkey($self) {
-    $self->app->log->debug('Daje::Controller::Super::vSentinelSentinel::load_sentinel__fkey ');
+sub load_all_sentinel_status($self) {
+    $self->app->log->debug('Daje::Controller::Super::vSentinelStatus::load_sentinel__fkey ');
     $self->render_later;
     my ($companies_pkey, $users_pkey) = $self->jwt->companies_users_pkey(
          $self->req->headers->header('X-Token-Check')
     );
-    my $pkey = $self->param('sentinel_sentinel_pkey');
 
     $self->app->log->debug($self->req->headers->header('X-Token-Check'));
     # my $setting = $self->param('setting');
-    $self->sentinel_sentinel->load_sentinel_sentinel_pkey_p($pkey)->then(sub($result) {
+    $self->sentinel_status->load_all_sentinel_status_pkey_p($pkey)->then(sub($result) {
         $self->render(json => $result->{data});
     })->catch(sub($err) {
-        $self->app->log->error('Daje::Controller::Super::vSentinelSentinel::load_sentinel_sentinel_pkey ' . $err);
+        $self->app->log->error('Daje::Controller::Super::vSentinelStatusList::load_all_sentinel_status_pkey ' . $err);
         $self->render
     });
 }
-sub load_sentinel_status_fkey($self) {
-    $self->app->log->debug('Daje::Controller::Super::SentinelSentinel::load_sentinel_status_fkey ');
-    $self->render_later;
-    my ($companies_pkey, $users_pkey) = $self->jwt->companies_users_pkey(
-         $self->req->headers->header('X-Token-Check')
-    );
-    my $fkey = $self->param('sentinel_status_fkey');
 
-    $self->app->log->debug($self->req->headers->header('X-Token-Check'));
-    # my $setting = $self->param('setting');
-    $self->sentinel_->sentinel_status_fkey_p($fkey)->then(sub($result) {
-        $self->render(json => $result->{data});
-    })->catch(sub($err) {
-        $self->app->log->error('Daje::Controller::Super::vSentinelSentinel::load_sentinel_status_fkey ' . $err);
-        $self->render
-    });
-}
 1;
 
 
@@ -82,21 +65,21 @@ sub load_sentinel_status_fkey($self) {
 =head1 NAME
 
 
-Daje::Controller::Super::SentinelSentinel - Model class
+Daje::Controller::Super::SentinelStatusList - Model class
 
 
 
 =head1 SYNOPSIS
 
 
-      use Daje::Controller::Super::vSentinelSentinel##
+      use Daje::Controller::Super::vSentinelStatus##
 
 
 
 =head1 DESCRIPTION
 
 
-Daje::Controller::Super::SentinelSentinel is a standard controller
+Daje::Controller::Super::SentinelStatus is a standard controller
 
 
 

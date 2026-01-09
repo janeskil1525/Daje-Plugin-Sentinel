@@ -1,21 +1,21 @@
-package Daje::Controller::Super::vSentinelCheckpointLog;
+package Daje::Controller::Super::vSentinelSentinelActionsList;
 use Mojo::Base 'Mojolicious::Controller', -base, -signatures;
 use v5.42;
 
 # NAME
 # ====
 #
-# Daje::Controller::Super::SentinelCheckpointLog - Model class
+# Daje::Controller::Super::SentinelSentinelActionsList - Model class
 #
 # SYNOPSIS
 # ========
 #
-#       use Daje::Controller::Super::vSentinelCheckpointLog##
+#       use Daje::Controller::Super::vSentinelSentinelActions##
 #
 # DESCRIPTION
 # ===========
 #
-# Daje::Controller::Super::SentinelCheckpointLog is a standard controller
+# Daje::Controller::Super::SentinelSentinelActions is a standard controller
 #
 # METHODS
 # =======
@@ -40,37 +40,36 @@ use v5.42;
 
 our $VERSION = '0.01';
 
-sub load_sentinel_checkpoint_log_pkey($self) {
-    $self->app->log->debug('Daje::Controller::Super::vSentinelCheckpointLog::load_sentinel__fkey ');
+sub load_all_sentinel_sentinel_actions($self) {
+    $self->app->log->debug('Daje::Controller::Super::vSentinelSentinelActions::load_sentinel__fkey ');
     $self->render_later;
     my ($companies_pkey, $users_pkey) = $self->jwt->companies_users_pkey(
          $self->req->headers->header('X-Token-Check')
     );
-    my $pkey = $self->param('sentinel_checkpoint_log_pkey');
 
     $self->app->log->debug($self->req->headers->header('X-Token-Check'));
     # my $setting = $self->param('setting');
-    $self->sentinel_checkpoint_log->load_sentinel_checkpoint_log_pkey_p($pkey)->then(sub($result) {
+    $self->sentinel_sentinel_actions->load_all_sentinel_sentinel_actions_pkey_p($pkey)->then(sub($result) {
         $self->render(json => $result->{data});
     })->catch(sub($err) {
-        $self->app->log->error('Daje::Controller::Super::vSentinelCheckpointLog::load_sentinel_checkpoint_log_pkey ' . $err);
+        $self->app->log->error('Daje::Controller::Super::vSentinelSentinelActionsList::load_all_sentinel_sentinel_actions_pkey ' . $err);
         $self->render
     });
 }
-sub load_sentinel_checkpoint_fkey($self) {
-    $self->app->log->debug('Daje::Controller::Super::SentinelCheckpointLog::load_sentinel_checkpoint_fkey ');
+sub load_list_sentinel_sentinel_fkey($self) {
+    $self->app->log->debug('Daje::Controller::Super::vSentinelSentinelActionsList::load_listsentinel_sentinel_fkey ');
     $self->render_later;
     my ($companies_pkey, $users_pkey) = $self->jwt->companies_users_pkey(
          $self->req->headers->header('X-Token-Check')
     );
-    my $fkey = $self->param('sentinel_checkpoint_fkey');
+    my $fkey = $self->param('sentinel_sentinel_fkey');
 
     $self->app->log->debug($self->req->headers->header('X-Token-Check'));
     # my $setting = $self->param('setting');
-    $self->sentinel_->sentinel_checkpoint_fkey_p($fkey)->then(sub($result) {
+    $self->v_sentinel_->sentinel_sentinel_fkey_p($fkey)->then(sub($result) {
         $self->render(json => $result->{data});
     })->catch(sub($err) {
-        $self->app->log->error('Daje::Controller::Super::vSentinelCheckpointLog::load_sentinel_checkpoint_fkey ' . $err);
+        $self->app->log->error('Daje::Controller::Super::vSentinelSentinelActions::load_sentinel_sentinel_fkey ' . $err);
         $self->render
     });
 }
@@ -82,21 +81,21 @@ sub load_sentinel_checkpoint_fkey($self) {
 =head1 NAME
 
 
-Daje::Controller::Super::SentinelCheckpointLog - Model class
+Daje::Controller::Super::SentinelSentinelActionsList - Model class
 
 
 
 =head1 SYNOPSIS
 
 
-      use Daje::Controller::Super::vSentinelCheckpointLog##
+      use Daje::Controller::Super::vSentinelSentinelActions##
 
 
 
 =head1 DESCRIPTION
 
 
-Daje::Controller::Super::SentinelCheckpointLog is a standard controller
+Daje::Controller::Super::SentinelSentinelActions is a standard controller
 
 
 
