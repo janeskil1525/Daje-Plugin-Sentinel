@@ -30,13 +30,13 @@ Mojolicious::Plugin and implements the following new ones.
 
 Register plugin in [Mojolicious](https://metacpan.org/pod/Mojolicious) application.
 
-# Mojolicious
-
-     $self->plugin('Sentinel');
-
 # Mojolicious::Lite
 
      plugin 'Sentinel';
+
+# Mojolicious
+
+     $self->plugin('Sentinel');
 
 # SEE ALSO
 
