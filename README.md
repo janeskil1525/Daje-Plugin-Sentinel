@@ -11,6 +11,8 @@ Daje::Plugin::Sentinel is a Mojolicious plugin.
 
 # REQUIRES
 
+[Daje::Database::Migrator](https://metacpan.org/pod/Daje%3A%3ADatabase%3A%3AMigrator) 
+
 [Daje::Plugin::Sentinel::Helpers](https://metacpan.org/pod/Daje%3A%3APlugin%3A%3ASentinel%3A%3AHelpers) 
 
 [Daje::Plugin::Sentinel::Routes](https://metacpan.org/pod/Daje%3A%3APlugin%3A%3ASentinel%3A%3ARoutes) 
@@ -30,13 +32,13 @@ Mojolicious::Plugin and implements the following new ones.
 
 Register plugin in [Mojolicious](https://metacpan.org/pod/Mojolicious) application.
 
-# Mojolicious::Lite
-
-     plugin 'Sentinel';
-
 # Mojolicious
 
      $self->plugin('Sentinel');
+
+# Mojolicious::Lite
+
+     plugin 'Sentinel';
 
 # SEE ALSO
 
