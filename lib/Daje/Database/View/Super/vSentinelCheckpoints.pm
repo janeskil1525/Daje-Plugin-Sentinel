@@ -1,19 +1,19 @@
-package Daje::Database::Model::Super::SentinelCheckpoints;
+package Daje::Database::View::Super::vSentinelCheckpoints;
 use Mojo::Base 'Daje::Database::Model::Super::Common::Base', -base, -signatures, -async_await;
 use v5.42;
 
 # NAME
 # ====
 #
-# Daje::Database::Model::Super::SentinelCheckpoints - Daje db model
+# Daje::Database::View::Super::vSentinelCheckpoints - Daje db model
 #
 # SYNOPSIS
 # ========
 #
 #
-#       use Daje::Database::Model::Super::SentinelCheckpoints;
+#       use Daje::Database::View::Super::vSentinelCheckpoints;
 #
-#       my $table = Daje::Database::Model::Super::SentinelCheckpoints->new(db => $db);
+#       my $table = Daje::Database::View::Super::vSentinelCheckpoints->new(db => $db);
 #
 #       my $result = $table->load_sentinel_checkpoints_pkey($self, $sentinel_checkpoints_pkey);
 #
@@ -21,15 +21,12 @@ use v5.42;
 #
 #       my $result = $table->load_sentinel_checkpoint_fkey($self, $sentinel_checkpoint_fkey);
 ##
-#       my $result = $table->insert($self, $data);
-#
-#       $table->update($self, $data) ;
 #
 #
 # DESCRIPTION
 # ===========
 #
-# Daje::Database::Model::Super::SentinelCheckpoints is a Model super class
+# Daje::Database::View::Super::vSentinelCheckpoints is a View super class
 #
 # METHODS
 # =======
@@ -61,9 +58,8 @@ has 'fields' => '"sentinel_checkpoints_pkey", "editnum", "insby", "insdatetime",
 "sentinel_workflow_fkey",
 "sentinel_checkpoint_fkey","lastexecution"';
 has 'primary_key_name' => "sentinel_checkpoints_pkey";
-has 'table_name' => "sentinel_checkpoints";
-has 'mandatory' => 'sentinel_workflow_fkey,';
-has 'workflow' => 'sentinel_workflow_fkey';
+has 'table_name' => "v_sentinel_checkpoints";
+
 
 async sub load_sentinel_workflow_fkey_p($self, $sentinel_workflow_fkey) {
     return $self->load_sentinel_workflow_fkey($sentinel_workflow_fkey);
@@ -93,26 +89,6 @@ sub load_sentinel_checkpoints_pkey($self, $sentinel_checkpoints_pkey) {
     );
 }
 
-sub insert($self, $data) {
-    my $result = $self->SUPER::insert(
-        $self->table_name, $data, $self->primary_key_name
-    );
-    return $result;
-}
-
-sub update($self, $data) {
-    return $self->SUPER::update
-    (
-        $self->table_name, $data,
-            {
-                $self->primary_key_name() => $data->{$self->primary_key_name()}
-            }
-    );
-}
-
-sub delete($self, $primary_key) {
-    return $self->SUPER::delete($self->table_name, { $self->primary_key_name() => $primary_key});
-}
 1;
 
 
@@ -121,7 +97,7 @@ sub delete($self, $primary_key) {
 =head1 NAME
 
 
-Daje::Database::Model::Super::SentinelCheckpoints - Daje db model
+Daje::Database::View::Super::vSentinelCheckpoints - Daje db model
 
 
 
@@ -129,9 +105,9 @@ Daje::Database::Model::Super::SentinelCheckpoints - Daje db model
 
 
 
-      use Daje::Database::Model::Super::SentinelCheckpoints;
+      use Daje::Database::View::Super::vSentinelCheckpoints;
 
-      my $table = Daje::Database::Model::Super::SentinelCheckpoints->new(db => $db);
+      my $table = Daje::Database::View::Super::vSentinelCheckpoints->new(db => $db);
 
       my $result = $table->load_sentinel_checkpoints_pkey($self, $sentinel_checkpoints_pkey);
 
@@ -139,9 +115,6 @@ Daje::Database::Model::Super::SentinelCheckpoints - Daje db model
 
       my $result = $table->load_sentinel_checkpoint_fkey($self, $sentinel_checkpoint_fkey);
 
-      my $result = $table->insert($self, $data);
-
-      $table->update($self, $data) ;
 
 
 
@@ -149,7 +122,7 @@ Daje::Database::Model::Super::SentinelCheckpoints - Daje db model
 =head1 DESCRIPTION
 
 
-Daje::Database::Model::Super::SentinelCheckpoints is a Model super class
+Daje::Database::View::Super::vSentinelCheckpoints is a View super class
 
 
 
