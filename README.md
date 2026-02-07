@@ -26,10 +26,6 @@ Daje::Plugin::Sentinel is a Mojolicious plugin.
 Daje::Plugin::Sentinel inherits all methods from
 Mojolicious::Plugin and implements the following new ones.
 
-# Mojolicious::Lite
-
-     plugin 'Sentinel';
-
 # register
 
     $plugin->register(Mojolicious->new);
@@ -39,6 +35,10 @@ Register plugin in [Mojolicious](https://metacpan.org/pod/Mojolicious) applicati
 # Mojolicious
 
      $self->plugin('Sentinel');
+
+# Mojolicious::Lite
+
+     plugin 'Sentinel';
 
 # SEE ALSO
 

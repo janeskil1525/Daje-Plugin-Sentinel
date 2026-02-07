@@ -77,7 +77,7 @@ use v5.42;
 our $VERSION = '0.01';
 
 sub routes($self, $app, $config) {
-    my $r = $app->routes;
+    my $r = $app->auth;
 
     $r->get('/sentinel/api/v1/sentinel_actions_list_all/')->to('SentinelSentinelActionsList#load_all_sentinel_sentinel_actions');
     $r->get('/sentinel/api/v1/sentinel_actions_sentinel_list/:sentinel_sentinel_fkey')->to('SentinelSentinelActions#load_list_sentinel_sentinel_fkey');
@@ -105,6 +105,11 @@ sub routes($self, $app, $config) {
     $r->get('/sentinel/api/v1/sentinel_workflow/:sentinel_workflow_fkey')->to('SentinelSentinel#load_sentinel_workflow_fkey');
     $r->get('/sentinel/api/v1/sentinel_status/:sentinel_status_fkey')->to('SentinelSentinel#load_sentinel_status_fkey');    $r->get('/sentinel/api/v1/sentinel/:sentinel_sentinel_pkey')->to('SentinelSentinel#load_sentinel_sentinel_pkey');
 }
+
+
+
+
+
 
 
 
