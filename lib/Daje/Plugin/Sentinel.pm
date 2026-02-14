@@ -64,6 +64,7 @@ use v5.42;
 use Daje::Plugin::Sentinel::Routes;
 use Daje::Plugin::Sentinel::Helpers;
 use  Daje::Database::Migrator;
+use Daje::Plugin::Sentinel::Authorities;
 
 our $VERSION = '0.01';
 
@@ -86,12 +87,37 @@ sub register ($self, $app, $config) {
 
     Daje::Plugin::Sentinel::Routes->new()->routes($app, $config);
     Daje::Plugin::Sentinel::Helpers->new()->helpers($app, $config);
-
+    Daje::Plugin::Sentinel::Authorities->new(db => $app->pg->db)->authorize();
 
     $app->log->debug("Daje::Plugin::Sentinel::register ends");
 }
 
 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -232,6 +258,8 @@ Daje::Plugin::Sentinel is a Mojolicious plugin.
 
 
 =head1 REQUIRES
+
+L<Daje::Plugin::Sentinel::Authorities> 
 
 L<Daje::Database::Migrator> 
 
